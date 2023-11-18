@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://boxpa08tkanlh"]
+
+[ext_resource type="Texture2D" uid="uid://c5mikpmvn2v77" path="res://ExternalAssets/Sprites/Ships/HyperionHavoc.png" id="1_httqy"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_ibdua"]
+
+[node name="Player" type="Area2D"]
+scale = Vector2(3.63333, 3.63333)
+script = ExtResource("1_ibdua")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_httqy")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-8.80735, 6.60552, 8.80735, 6.60552, 8.80735, -2.20183, 2.20184, -8.80733, -2.20184, -8.80733, -8.80735, -2.20183)
+
+[node name="Muzzle0" type="Marker2D" parent="."]
+position = Vector2(-3.85321, -3.85321)
+
+[node name="Muzzle1" type="Marker2D" parent="."]
+position = Vector2(4.12844, -3.85321)

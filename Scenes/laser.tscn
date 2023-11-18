@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj3wdplbwnx6i"]
+
+[ext_resource type="Texture2D" uid="uid://cixib1bo3e2jk" path="res://ExternalAssets/Sprites/Props/BlueLaser.png" id="1_cfep0"]
+[ext_resource type="Script" path="res://Scripts/laser.gd" id="1_jvj4p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o2ib2"]
+size = Vector2(4, 6)
+
+[node name="Laser" type="Area2D"]
+z_index = 1
+scale = Vector2(2.44, 2.44)
+script = ExtResource("1_jvj4p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.909836, 1.81148)
+texture = ExtResource("1_cfep0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.00548, 1)
+shape = SubResource("RectangleShape2D_o2ib2")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

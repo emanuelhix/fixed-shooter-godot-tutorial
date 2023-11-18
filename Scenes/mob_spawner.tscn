@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhvi62t838qj8"]
+
+[ext_resource type="Script" path="res://Scripts/mob_spawner.gd" id="1_2feu6"]
+
+[node name="MobSpawner" type="Node2D"]
+script = ExtResource("1_2feu6")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0

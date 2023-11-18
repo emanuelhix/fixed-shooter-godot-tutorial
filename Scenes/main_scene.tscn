@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://06r8eroo80o7"]
+
+[ext_resource type="Texture2D" uid="uid://2ianf5kmqo8a" path="res://ExternalAssets/Sprites/Backgrounds/GaussianStars.png" id="1_46w22"]
+[ext_resource type="PackedScene" uid="uid://boxpa08tkanlh" path="res://Scenes/player.tscn" id="2_0ffbo"]
+[ext_resource type="PackedScene" uid="uid://bhvi62t838qj8" path="res://Scenes/mob_spawner.tscn" id="3_4wlhn"]
+[ext_resource type="Script" path="res://Scripts/last_spawner.gd" id="4_eemes"]
+
+[node name="MainScene" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(269, 480)
+scale = Vector2(0.988889, 1)
+texture = ExtResource("1_46w22")
+region_enabled = true
+region_rect = Rect2(0, 0, 560, 960)
+
+[node name="Player" parent="." instance=ExtResource("2_0ffbo")]
+position = Vector2(280, 902)
+
+[node name="MobSpawner" parent="." node_paths=PackedStringArray("mob_parent") instance=ExtResource("3_4wlhn")]
+mob_parent = NodePath("MobFolder")
+
+[node name="MobFolder" type="Node2D" parent="MobSpawner"]
+
+[node name="Points" type="Node2D" parent="MobSpawner"]
+
+[node name="Point" type="Marker2D" parent="MobSpawner/Points"]
+
+[node name="Point2" type="Marker2D" parent="MobSpawner/Points"]
+position = Vector2(140, 0)
+
+[node name="Point3" type="Marker2D" parent="MobSpawner/Points"]
+position = Vector2(280, 0)
+
+[node name="Point4" type="Marker2D" parent="MobSpawner/Points"]
+position = Vector2(420, 0)
+
+[node name="LaserSpawner" type="Node2D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("4_eemes")
+player = NodePath("../Player")
